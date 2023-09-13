@@ -1,0 +1,33 @@
+.h1 {
+  text-align: center;
+}
+
+.form {
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.input {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.login {
+  border: none;
+  padding: 10px;
+  background-color: rgb(103, 103, 201);
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  width: 270px;
+  cursor: pointer;
+  &:disabled {
+    color: green;
+    cursor: not-allowed;
+  }
+}
