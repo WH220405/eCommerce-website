@@ -1,4 +1,5 @@
 const BASE_URL = "https://fakestoreapi.com";
+
 //get all products
 const getAllProducts = async () => {
   try {
@@ -10,13 +11,13 @@ const getAllProducts = async () => {
   }
 };
 
-//get sorted products by description
+//get single by Id
 
-const getSortResults = async () => {
+const getSingleProduct = async productId => {
   try {
-    const response = await fetch(`${BASE_URL}/products?sort=desc`);
-    const productsData = await response.json();
-    return productsData;
+    const response = await fetch(`${BASE_URL}/products/${productId}`);
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
@@ -27,37 +28,38 @@ const getSortResults = async () => {
 const getAllCategories = async () => {
   try {
     const response = await fetch(`${BASE_URL}/products/categories`);
-    const categories = await response.json();
-    return categories;
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
 };
+
 //get products in specific  category
 
 const getProductsInCategory = async category => {
   try {
     const response = await fetch(`${BASE_URL}/products/${category}`);
-    const productsData = await response.json();
-    return productsData;
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
 };
 
-//getbyId
+//get sorted by description
 
-const getSingleProduct = async productId => {
+const getSortResults = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/products/${productId}`);
-    const product = await response.json();
-    return product;
+    const response = await fetch(`${BASE_URL}/products?sort=desc`);
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
 };
 
-//post
+//post add product
 
 const addNewProduct = async object => {
   try {
@@ -78,7 +80,7 @@ const addNewProduct = async object => {
   }
 };
 
-//update
+//update PATCH product
 
 const updateProductById = async object => {
   try {
@@ -92,22 +94,22 @@ const updateProductById = async object => {
         category: object.category,
       }),
     });
-    const product = await response.json();
-    return product;
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
 };
 
-//delete
+//delete by id
 
 const deleteProduct = async productId => {
   try {
     const response = await fetch(`${BASE_URL}/products/${productId}`, {
       method: "DELETE",
     });
-    const product = await response.json();
-    return product;
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
@@ -116,8 +118,8 @@ const deleteProduct = async productId => {
 const GetCategory = async category => {
   try {
     const response = await fetch(`${BASE_URL}/products/category/${category}`);
-    const productsData = await response.json();
-    return productsData;
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
