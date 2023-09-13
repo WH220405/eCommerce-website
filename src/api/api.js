@@ -1,10 +1,10 @@
 const BASE_URL = "https://fakestoreapi.com";
-//get
+//get all products
 const getAllProducts = async () => {
   try {
     const response = await fetch(`${BASE_URL}/products`);
-    const productsData = await response.json();
-    return productsData;
+    const result = await response.json();
+    return result;
   } catch (error) {
     console.log(error);
   }
